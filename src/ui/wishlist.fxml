@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="background" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.wishlistPageController">
+    <children>
+        <Label fx:id="homeLabel" layoutX="40.0" layoutY="766.0" prefHeight="17.0" prefWidth="60.0" text="HOME" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <Button fx:id="homeButton" layoutX="30.0" layoutY="700.0" mnemonicParsing="false" onAction="#homeButtonPressed" prefHeight="60.0" prefWidth="60.0" />
+        <Button fx:id="closetButton" layoutX="125.0" layoutY="700.0" mnemonicParsing="false" onAction="#closetButtonPressed" prefHeight="60.0" prefWidth="60.0" />
+        <Button fx:id="wishlistButton" layoutX="224.0" layoutY="700.0" mnemonicParsing="false" onAction="#wishlistButtonPressed" prefHeight="60.0" prefWidth="60.0" />
+        <Button fx:id="profileButton" layoutX="310.0" layoutY="700.0" mnemonicParsing="false" onAction="#profileButtonPressed" prefHeight="60.0" prefWidth="60.0" />
+        <Label fx:id="closetLabel" layoutX="132.0" layoutY="766.0" prefHeight="17.0" prefWidth="60.0" text="CLOSET" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="wishlistLabel" layoutX="226.0" layoutY="766.0" prefHeight="17.0" prefWidth="60.0" text="WISHLIST" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="profileLabel" layoutX="315.0" layoutY="766.0" prefHeight="17.0" prefWidth="60.0" text="PROFILE" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

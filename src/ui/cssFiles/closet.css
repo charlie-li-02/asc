@@ -1,0 +1,104 @@
+ #background {
+    -fx-background-color: rgba(255, 255, 255, 1);
+ }
+
+ .button:selected {
+     -fx-background-color: none;
+ }
+
+ .button:focused {
+     -fx-background-color: none;
+ }
+
+ .tree-cell:hover {
+    -fx-background-color: none;
+    -fx-text-fill: black;
+    -fx-underline: true;
+ }
+
+ .tree-cell:selected {
+    -fx-background-color: black;
+    -fx-text-fill: black;
+ }
+
+ .tree-cell:focused {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+ }
+
+ .tree-cell .tree-disclosure-node .arrow {
+    -fx-background-color: black;
+ }
+
+ #treeView .scroll-bar:vertical,
+ #treeView .scroll-bar:horizontal {
+    -fx-background-color: white;
+ }
+
+
+ #treeView .scroll-bar:vertical .thumb,
+ #treeView .scroll-bar:horizontal .thumb {
+    -fx-background-color: black;
+    -fx-background-radius: 0em;
+ }
+
+
+ #treeView .scroll-bar:vertical .track,
+ #treeView .scroll-bar:horizontal .track {
+    -fx-background-color: white;
+    -fx-border-color: white;
+ }
+
+ #treeView .increment-button,
+ #treeView .decrement-button {
+    -fx-background-color: white;
+    -fx-border-color: white;
+ }
+
+ #treeView .scroll-bar .increment-arrow,
+ #treeView .scroll-bar .decrement-arrow, {
+    -fx-background-color: transparent;
+ }
+
+
+ #treeView {
+    -fx-border-color: white;
+    -fx-font-size: 16px;
+ }
+
+ #treeView:focused {
+    -fx-background-color: none;
+ }
+
+
+#homeButton {
+    -fx-border: none;
+    -fx-background-image: url('images/home.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 60px;
+}
+
+#closetButton {
+    -fx-border: none;
+    -fx-background-image: url('images/closet.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 60px;
+}
+
+#wishlistButton {
+    -fx-border: none;
+    -fx-background-image: url('images/wishlist.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 60px;
+}
+
+#profileButton {
+    -fx-border: none;
+    -fx-background-image: url('images/profile.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 60px;
+}
