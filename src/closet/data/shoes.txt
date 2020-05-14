@@ -1,0 +1,11 @@
+Solar Hu Glide Multi-Color;SHOES;Adidas;US 10;250.0
+React Element 87 Light Orewood;SHOES;Nike;US 10.5;215.0
+Air Jordan 1 Crimson Tint;SHOES;Jordan;US 10.5;215.0
+Snake Ace Sneakers;SHOES;Gucci;Gucci 9.5;835.0
+Black & White Speed Sneakers;SHOES;Balenciaga;IT 44;1050.0
+Nike X Undercover Daybreak;SHOES;Nike;US 10.5;210.0
+NMD R1 Japan Triple White;SHOES;Adidas;US 9.5;170.0
+CDG PLAY X Converse Chuck Taylor 70s ;SHOES;Converse;US 10;180.0
+Yeezy Boost 350 V2 Black;SHOES;Yeezy;US 10.5;300.0
+Ultraboost 4.0 Anniversary;SHOES;Adidas;US 10;250.0
+NMD XR1 OG;SHOES;Adidas;US 10;170.0

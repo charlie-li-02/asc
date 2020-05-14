@@ -102,3 +102,69 @@
     -fx-background-position: center;
     -fx-background-size: 60px;
 }
+
+#addButton {
+    -fx-border: none;
+    -fx-background-image: url('images/add.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 20px;
+}
+
+#doneButton {
+    -fx-border: none;
+    -fx-background-image: url('images/done.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 25px;
+}
+
+#backButton {
+    -fx-border: none;
+    -fx-background-image: url('images/back.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 20px;
+}
+
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: black;
+    -fx-border-focus: black;
+    -fx-accent: black;
+    -fx-font-size: 14px;
+}
+
+#choiceBox {
+    -fx-border-color: black;
+    -fx-mark-color: black;
+    -fx-font-size: 14px;
+}
+
+#choiceBox .arrow {
+    -fx-background-color: black;
+}
+
+#choiceBox .context-menu {
+    -fx-background-color: white;
+    -fx-border-color: black;
+}
+
+#choiceBox .menu-item:focused > .label {
+    -fx-text-fill: black;
+    -fx-underline: true;
+ }
+
+ #chooseImageButton {
+    -fx-border-color: black;
+ }
+
+ #chooseImageButton:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+ }
+
+ #chooseImageButton:selected {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+  }

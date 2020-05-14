@@ -92,14 +92,6 @@ public class homePageController {
         weatherIcon.setVisible(true);
     }
 
-//    public void initWeather(ReadWebPageWeather weatherParser) {
-//        try {
-//            displayWeather(weatherParser);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     @FXML
     public void onEnter(ActionEvent event) {
         username = enterUserName.getText();
@@ -120,7 +112,6 @@ public class homePageController {
 
     @FXML
     public void closetButtonPressed(ActionEvent event) {
-        //hideWeather();
         switchScene("closet", event);
     }
 
@@ -136,6 +127,7 @@ public class homePageController {
         switchScene("profile", event);
     }
 
+
     private void switchScene(String sceneName, ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(sceneName + ".fxml"));
@@ -148,7 +140,7 @@ public class homePageController {
         }
     }
 
-    private void displayWeather() throws IOException {
+    private void displayWeather() {
         tempLabel.setText(loadTemp() + "°C");
         weatherIcon.setImage(SwingFXUtils.toFXImage(loadIcon(), null));
     }

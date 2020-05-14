@@ -1,6 +1,6 @@
 #background {
     -fx-background-color: rgba(255, 255, 255, 1);
-}
+ }
 
 .button:selected {
      -fx-background-color: none;
@@ -10,51 +10,56 @@
      -fx-background-color: none;
  }
 
-
-#homeButton {
+#backButton {
     -fx-border: none;
-    -fx-background-image: url('images/home.png');
+    -fx-background-image: url('images/back.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-background-size: 60px;
+    -fx-background-size: 20px;
 }
 
-#closetButton {
+#deleteButton {
     -fx-border: none;
-    -fx-background-image: url('images/closet.png');
+    -fx-background-image: url('images/delete.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-background-size: 60px;
+    -fx-background-size: 20px;
 }
 
-#wishlistButton {
-    -fx-border: none;
-    -fx-background-image: url('images/wishlist.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: 60px;
-}
-
-#profileButton {
-    -fx-border: none;
-    -fx-background-image: url('images/profile.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: 60px;
-}
-
-#editUsernameButton {
+#editButton {
     -fx-border: none;
     -fx-background-image: url('images/edit.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-background-size: 25px;
+    -fx-background-size: 20px;
 }
 
-#usernameBox {
+#doneButton {
+    -fx-border: none;
+    -fx-background-image: url('images/done.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 20px;
+}
+
+.text-field {
     -fx-background-color: #ffffff;
     -fx-border-color: none;
     -fx-border-focus: none;
     -fx-accent: black;
 }
 
+ #chooseImageButton {
+    -fx-border-color: black;
+    -fx-background-color: white;
+ }
+
+ #chooseImageButton:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+ }
+
+ #chooseImageButton:selected {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+  }

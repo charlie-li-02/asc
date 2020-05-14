@@ -50,6 +50,68 @@ public class Closet {
         }
     }
 
+    public void processNewItem(TreeItem<String> parent, String name, String category, String brand, String size, String price) {
+        ClosetItem c;
+        switch (category) {
+            case "ACCESSORIES":
+                c = new Accessory(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(accessories, c, name, parent);
+                break;
+            case "BAGS":
+                c = new Bag(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(bags, c, name, parent);
+                break;
+            case "DRESSES":
+                c = new Dress(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(dresses, c, name, parent);
+                break;
+            case "OUTERWEARS":
+                c = new Outerwear(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(outerwears, c, name, parent);
+                break;
+            case "PANTS":
+                c = new Pants(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(pants, c, name, parent);
+                break;
+            case "SHIRTS":
+                c = new Shirt(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(shirts, c, name, parent);
+                break;
+            case "SHOES":
+                c = new Shoes(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(shoes, c, name, parent);
+                break;
+            case "SHORTS":
+                c = new Shorts(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(shorts, c, name, parent);
+                break;
+            case "SKIRTS":
+                c = new Skirt(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(skirts, c, name, parent);
+                break;
+            case "SWEATERS":
+                c = new Sweater(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(sweaters, c, name, parent);
+                break;
+            case "SWEATSHIRTS":
+                c = new Sweatshirt(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(sweatshirts, c, name, parent);
+                break;
+            case "TOPS":
+                c = new Top(name, category, brand, size, Double.parseDouble(price));
+                processNewItemHelper(tops, c, name, parent);
+                break;
+            default:
+                System.out.println("invalid category while creating new item");
+        }
+    }
+
+    private void processNewItemHelper(HashMap<String, ClosetItem> map, ClosetItem item, String name, TreeItem<String> parent) {
+        map.put(name, item);
+        TreeItem<String> child = new TreeItem<>(name);
+        parent.getChildren().add(child);
+    }
+
     public void load() throws IOException {
         List<String> save = Files.readAllLines(Paths.get("src/closet/data/accessories.txt"));
         for (String line : save) {
@@ -302,7 +364,7 @@ public class Closet {
     }
 
     public static String merge(ClosetItem c) {
-        String entry = c.getName() + ";" + c.getCategory()+ ";" + c.getBrand() + ";" + c.getPrice();
+        String entry = c.getName() + ";" + c.getCategory()+ ";" + c.getBrand() + ";" + c.getSize() + ";" + c.getPrice();
         return entry;
     }
 

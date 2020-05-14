@@ -28,23 +28,16 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-
-
             window = primaryStage;
             window.setTitle("A.S.C.");
             window.getIcons().add(new Image("file:asc.png"));
             homeScene();
-
-            
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void homeScene() throws IOException {
-//        FXMLLoader loader = new FXMLLoader();
-//        loader.setLocation(getClass().getResource("home.fxml"));
-//        Parent root = loader.load();
         Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         home = new Scene(root);
         home.getStylesheets().add(getClass().getResource("cssFiles/home.css").toExternalForm());
@@ -53,8 +46,6 @@ public class Main extends Application {
         weatherParser.readWeather();
         weatherParser.parseTemperature();
         weatherParser.weatherIcon();
-        //homePageController controller = loader.getController();
-        //controller.initWeather(weatherParser);
         saveWeatherIcon(weatherParser.getIcon());
         saveTemp(weatherParser.getTemp());
         window.setScene(home);
