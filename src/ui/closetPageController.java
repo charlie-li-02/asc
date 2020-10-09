@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,9 +21,8 @@ import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
-public class closetPageController {
+public class closetPageController extends Controller {
 
     private ObservableList<String> categoryList = FXCollections.observableArrayList("ACCESSORIES", "BAGS",
             "DRESSES", "OUTERWEARS", "PANTS", "SHIRTS", "SHOES", "SHORTS", "SKIRTS", "SWEATERS", "SWEATSHIRTS", "TOPS");
@@ -142,13 +140,13 @@ public class closetPageController {
 
 
     @FXML
-    public void initialize() {
+    public void init(Closet closet) {
         closetLabel.setUnderline(true);
         root.getChildren().addAll(accessories, bags, dresses, outerwears, pants, shirts, shoes, shorts, skirts, sweaters, sweatshirts, tops);
         treeView.setRoot(root);
         choiceBox.setItems(categoryList);
-        closet = new Closet();
-        closet.initCloset();
+        this.closet = closet;
+        //closet.initCloset();
         try {
             closet.display(accessories);
             closet.display(bags);
@@ -298,7 +296,7 @@ public class closetPageController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        switchScene("home", event);
+        switchScene("home", event, closet);
     }
 
     @FXML
@@ -313,7 +311,7 @@ public class closetPageController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        switchScene("wishlist", event);
+        switchScene("wishlist", event, closet);
     }
 
     @FXML
@@ -323,7 +321,7 @@ public class closetPageController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        switchScene("profile", event);
+        switchScene("profile", event, closet);
     }
 
 
@@ -373,18 +371,6 @@ public class closetPageController {
             brandBox.setText("");
             sizeBox.setText("");
             priceBox.setText("");
-        }
-    }
-
-    private void switchScene(String sceneName, Event event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(sceneName + ".fxml"));
-            Scene newScene = new Scene(root);
-            newScene.getStylesheets().add(getClass().getResource("cssFiles/" + sceneName + ".css").toExternalForm());
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(newScene);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

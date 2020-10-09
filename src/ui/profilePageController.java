@@ -1,15 +1,11 @@
 package ui;
 
+import closet.Closet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,7 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class profilePageController {
+public class profilePageController extends Controller {
 
     // begin labels -----------------------------------------------
     @FXML
@@ -65,9 +61,11 @@ public class profilePageController {
 
     private String username;
     private String usernamePath = "src/user/username.txt";
+    private Closet closet;
 
     @FXML
-    public void initialize() {
+    public void init(Closet closet) {
+        this.closet = closet;
         profileLabel.setUnderline(true);
         usernameBox.setVisible(false);
         try {
@@ -80,33 +78,22 @@ public class profilePageController {
 
     @FXML
     public void homeButtonPressed(ActionEvent event) {
-        switchScene("home", event);
+        switchScene("home", event, closet);
     }
 
     @FXML
     public void closetButtonPressed(ActionEvent event) {
-        switchScene("closet", event);
+        switchScene("closet", event, closet);
     }
 
     @FXML
     public void wishlistButtonPressed(ActionEvent event) {
-        switchScene("wishlist", event);
+        switchScene("wishlist", event, closet);
     }
 
     @FXML
     public void profileButtonPressed(ActionEvent event) {
         // do nothing
-    }
-
-    private void switchScene(String sceneName, ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(sceneName + ".fxml"));            Scene newScene = new Scene(root);
-            newScene.getStylesheets().add(getClass().getResource("cssFiles/" + sceneName + ".css").toExternalForm());
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(newScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML

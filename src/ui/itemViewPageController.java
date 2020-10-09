@@ -152,19 +152,23 @@ public class itemViewPageController {
 
     @FXML
     public void backButtonClicked(ActionEvent event) {
+        switchToClosetView(event);
+    }
+
+    private void switchToClosetView(ActionEvent event) {
         try {
-            switchToClosetView(event);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("closet.fxml"));
+            Parent root = loader.load();
+            Controller controller = loader.getController();
+            controller.init(closet);
+            Scene newScene = new Scene(root);
+            newScene.getStylesheets().add(getClass().getResource("cssFiles/closet.css").toExternalForm());
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(newScene);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void switchToClosetView(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("closet.fxml"));
-        Scene newScene = new Scene(root);
-        newScene.getStylesheets().add(getClass().getResource("cssFiles/closet.css").toExternalForm());
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(newScene);
     }
 
     @FXML

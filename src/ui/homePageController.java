@@ -1,17 +1,13 @@
 package ui;
 
+import closet.Closet;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -20,7 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class homePageController {
+public class homePageController extends Controller {
 
 
     String usernamePath = "src/user/username.txt";
@@ -74,9 +70,12 @@ public class homePageController {
     private Button profileButton;
     // end buttons -----------------------------------------------
 
+    Closet closet;
+
 
     @FXML
-    public void initialize() {
+    public void init(Closet closet) {
+        this.closet = closet;
         enterUserName.setVisible(false);
         enterUsernameLabel.setVisible(false);
         homeLabel.setUnderline(true);
@@ -112,32 +111,19 @@ public class homePageController {
 
     @FXML
     public void closetButtonPressed(ActionEvent event) {
-        switchScene("closet", event);
+        switchScene("closet", event, closet);
     }
 
     @FXML
     public void wishlistButtonPressed(ActionEvent event) {
         hideWeather();
-        switchScene("wishlist", event);
+        switchScene("wishlist", event, closet);
     }
 
     @FXML
     public void profileButtonPressed(ActionEvent event) {
         hideWeather();
-        switchScene("profile", event);
-    }
-
-
-    private void switchScene(String sceneName, ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(sceneName + ".fxml"));
-            Scene newScene = new Scene(root);
-            newScene.getStylesheets().add(getClass().getResource("cssFiles/" + sceneName + ".css").toExternalForm());
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(newScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        switchScene("profile", event, closet);
     }
 
     private void displayWeather() {

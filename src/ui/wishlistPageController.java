@@ -1,18 +1,14 @@
 package ui;
 
+import closet.Closet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.GridPane;
 
-import java.io.IOException;
-
-public class wishlistPageController {
+public class wishlistPageController extends Controller {
 
     // begin labels -----------------------------------------------
     @FXML
@@ -43,18 +39,28 @@ public class wishlistPageController {
     // end buttons -----------------------------------------------
 
     @FXML
-    public void initialize() {
+    private ScrollPane scrollPane;
+
+    @FXML
+    private GridPane gridPane;
+
+    private Closet closet;
+
+
+    @FXML
+    public void init(Closet closet) {
+        this.closet = closet;
         wishlistLabel.setUnderline(true);
     }
 
     @FXML
     public void homeButtonPressed(ActionEvent event) {
-        switchScene("home", event);
+        switchScene("home", event, closet);
     }
 
     @FXML
     public void closetButtonPressed(ActionEvent event) {
-        switchScene("closet", event);
+        switchScene("closet", event, closet);
     }
 
     @FXML
@@ -64,17 +70,7 @@ public class wishlistPageController {
 
     @FXML
     public void profileButtonPressed(ActionEvent event) {
-        switchScene("profile", event);
+        switchScene("profile", event, closet);
     }
 
-    private void switchScene(String sceneName, ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(sceneName + ".fxml"));            Scene newScene = new Scene(root);
-            newScene.getStylesheets().add(getClass().getResource("cssFiles/" + sceneName + ".css").toExternalForm());
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(newScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

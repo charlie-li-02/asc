@@ -1,5 +1,6 @@
 package ui;
 
+import closet.Closet;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +19,7 @@ public class Main extends Application {
 
     Stage window;
     Scene home;
-    Scene profile;
+    Closet closet;
 
 
     public static void main(String[] args) {
@@ -31,6 +32,8 @@ public class Main extends Application {
             window = primaryStage;
             window.setTitle("A.S.C.");
             window.getIcons().add(new Image("file:asc.png"));
+            closet = new Closet();
+            closet.initCloset();
             homeScene();
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,7 +41,15 @@ public class Main extends Application {
     }
 
     private void homeScene() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+//        home = new Scene(root);
+//        home.getStylesheets().add(getClass().getResource("cssFiles/home.css").toExternalForm());
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("home.fxml"));
+        Parent root = loader.load();
+        homePageController controller = loader.getController();
+        controller.init(closet);
         home = new Scene(root);
         home.getStylesheets().add(getClass().getResource("cssFiles/home.css").toExternalForm());
 
